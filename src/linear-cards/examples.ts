@@ -3,7 +3,8 @@ import type { LinearCardsDocument } from "./types";
 export const demoDocument: LinearCardsDocument = {
   brand: {
     logoAlt: "Humanbased",
-    logoSrc: "/assets/humanbased-symbol-wordmark-black.svg",
+    logoSrc: "/assets/humanbased-logomark-black.svg",
+    name: "Humanbased",
   },
   sourceHref: "https://github.com/humanbased-ai/linear-cards-system",
   title: "Linear Cards System",

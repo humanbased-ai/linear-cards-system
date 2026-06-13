@@ -58,8 +58,9 @@ export function LinearCardsTimeline({ document }: Props) {
       {(document.brand || document.footerNote) && (
         <footer className="lc-document-footer">
           {document.brand ? (
-            <div className="lc-footer-logo" aria-label={document.brand.logoAlt ?? document.title}>
+            <div className="lc-footer-brand" aria-label={document.brand.logoAlt ?? document.title}>
               <img src={document.brand.logoSrc} alt={document.brand.logoAlt ?? ""} />
+              {document.brand.name ? <strong>{document.brand.name}</strong> : null}
             </div>
           ) : null}
           {document.footerNote ? <p>{document.footerNote}</p> : null}

@@ -181,6 +181,7 @@ export type LinearCardsDocument = {
   brand?: {
     logoAlt?: string;
     logoSrc: string;
+    name?: string;
   };
   footerNote?: string;
   eyebrow?: string;

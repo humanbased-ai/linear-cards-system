@@ -324,15 +324,23 @@ summary:focus-visible {
   border-top: 1px solid var(--lc-border);
 }
 
-.lc-footer-logo {
+.lc-footer-brand {
   display: inline-flex;
+  align-items: center;
+  gap: 10px;
   width: fit-content;
 }
 
-.lc-footer-logo img {
+.lc-footer-brand img {
   display: block;
-  width: 148px;
+  width: 34px;
   height: auto;
+}
+
+.lc-footer-brand strong {
+  color: var(--lc-text-strong);
+  font-size: 22px;
+  line-height: 1;
 }
 
 .lc-document-footer p {
