@@ -64,9 +64,21 @@ Cards are generic information shapes, not domain-specific components:
 - `split`: input/output, before/after, cause/effect, side-by-side comparison
 - `branch`: local conditional paths, alternatives, fallback routes
 - `reference`: links, files, citations, logs, assets, records
+- `statement`: unframed formatted text for lightweight milestones, observations, or published artifacts
 - `state`: success, warning, failure, blocked, pending, running, partial
 - `action`: commands, approvals, next steps, user choices
 - `disclosure`: collapsed deeper details
+
+## Layout Guidance
+
+Use the rail to create sequence, then mix framed cards with unframed statements:
+
+- Use cards when information needs comparison, grouping, actions, disclosure, or a strong state boundary.
+- Use `statement` when the item is a lightweight milestone, note, observation, artifact announcement, or contextual sentence.
+- Keep one dominant card per node when possible. Add statements before or after it to reduce card fatigue.
+- Let margin create focus: larger gaps between rail nodes, moderate padding inside cards, and narrow text measures for statements.
+- Avoid filling every timeline stop with a full card. Quiet layouts come from contrast between dense modules and open text.
+- Tune spacing through shared CSS tokens and primitives before adding one-off margins.
 
 ## Palette Guidance
 

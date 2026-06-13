@@ -80,6 +80,22 @@ function TimelineNode({ node }: { node: LinearCardNode }) {
 }
 
 function CardRenderer({ card, compact }: { card: LinearCard; compact: boolean }) {
+  if (card.type === "statement") {
+    return (
+      <section className={toneClass("lc-statement", card.tone)}>
+        {card.eyebrow ? <p className="lc-eyebrow">{card.eyebrow}</p> : null}
+        <div className="lc-statement-row">
+          <div>
+            <h3>{card.title}</h3>
+            {card.body ? <p>{card.body}</p> : null}
+            {card.meta ? <span>{card.meta}</span> : null}
+          </div>
+          <BadgeRow badges={card.badges} />
+        </div>
+      </section>
+    );
+  }
+
   const className = [
     "lc-card",
     `lc-card-${card.type}`,

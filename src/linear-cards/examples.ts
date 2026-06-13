@@ -45,6 +45,14 @@ export const demoDocument: LinearCardsDocument = {
             "Complex tasks should be rendered as mostly linear workflows. The agent should arrange steps and choose card shapes, while the system preserves a consistent timeline-card experience.",
           meta: "Text Card",
         },
+        {
+          type: "statement",
+          title: "Statements stay unframed",
+          body:
+            "Use formatted statements for lightweight milestones, observations, or published artifacts that do not need a full card surface.",
+          meta: "Statement primitive",
+          badges: [{ label: "quiet", tone: "muted" }],
+        },
       ],
     },
     {
@@ -169,6 +177,14 @@ export const demoDocument: LinearCardsDocument = {
       rail: { time: "8:02 PM", label: "LINKED", markerTone: "lime" },
       cards: [
         {
+          type: "statement",
+          title: "Published session guide",
+          body: "A reusable instruction capsule for coding agents is now part of the package.",
+          meta: "agent/LINEAR_CARDS_SESSION.md",
+          tone: "cyan",
+          badges: [{ label: "reference", tone: "cyan" }],
+        },
+        {
           type: "reference",
           title: "Portable assets",
           references: [
@@ -207,6 +223,12 @@ export const demoDocument: LinearCardsDocument = {
           summary: "Why generic cards are enough",
           body:
             "The card types describe information shape, not domain meaning. Math, coding, research, operations, and engineering tasks can all map into the same rendering grammar.",
+        },
+        {
+          type: "statement",
+          title: "Quiet layouts favor contrast between framed and unframed information",
+          meta: "Spacing guideline",
+          tone: "violet",
         },
       ],
     },

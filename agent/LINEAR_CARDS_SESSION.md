@@ -23,15 +23,29 @@ Choose cards by information shape, not domain meaning:
 - `split`: input/output, before/after, cause/effect, side-by-side comparison
 - `branch`: local conditional paths, alternatives, fallback routes
 - `reference`: links, files, citations, logs, assets, records
+- `statement`: unframed formatted text for lightweight milestones, observations, or published artifacts
 - `state`: success, warning, failure, blocked, pending, running, partial
 - `action`: commands, approvals, next steps, user choices
 - `disclosure`: collapsed deeper details
+
+## Layout And Spacing Guidance
+
+Use the reference rhythm: rail first, then a mix of framed cards and quiet information statements.
+
+- Use cards for grouped data, comparisons, actions, references, decisions, disclosures, and state boundaries.
+- Use `statement` for lightweight narrative, artifact announcements, observations, and single facts.
+- Prefer one dominant card per node. Pair it with statements instead of stacking many cards.
+- Create focus with vertical spacing between nodes, not heavy decoration.
+- Keep statements narrow and readable. They should feel like annotations on the rail.
+- Leave breathing room after summary cards and before major timeline transitions.
+- If the layout feels loud, reduce the number of framed surfaces before changing color.
+- Optimize spacing through shared CSS primitives first. Avoid per-instance margins unless a new primitive is truly needed.
 
 ## Workflow Rules
 
 - Keep the main flow mostly linear.
 - Put conditional paths inside `branch` cards.
-- Prefer one to three cards per node.
+- Prefer one dominant card per node, supported by optional statements.
 - Prefer generic cards over custom components.
 - Use `status`, `tone`, `emphasis`, and tokens to tune presentation.
 - Use black and white as the main material. Reserve vivid colors for state chips, deltas, rail markers, selections, and small decorative signals.

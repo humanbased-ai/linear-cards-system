@@ -29,6 +29,7 @@ export type LinearCardType =
   | "split"
   | "branch"
   | "reference"
+  | "statement"
   | "state"
   | "action"
   | "disclosure";
@@ -118,6 +119,14 @@ export type ReferenceCard = LinearCardBase & {
   }[];
 };
 
+export type StatementCard = LinearCardBase & {
+  type: "statement";
+  title: string;
+  body?: string;
+  meta?: string;
+  badges?: LinearBadge[];
+};
+
 export type StateCard = LinearCardBase & {
   type: "state";
   status: LinearCardStatus;
@@ -148,6 +157,7 @@ export type LinearCard =
   | SplitCard
   | BranchCard
   | ReferenceCard
+  | StatementCard
   | StateCard
   | ActionCard
   | DisclosureCard;
