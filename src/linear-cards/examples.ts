@@ -1,13 +1,14 @@
 import type { LinearCardsDocument } from "./types";
 
 export const demoDocument: LinearCardsDocument = {
-  eyebrow: "LINEAR CARDS SYSTEM",
-  title: "Workflow Rendering Run",
+  brand: {
+    logoAlt: "Humanbased",
+    logoSrc: "/assets/humanbased-symbol-wordmark-black.svg",
+  },
+  sourceHref: "https://github.com/humanbased-ai/linear-cards-system",
+  title: "Linear Cards System",
   subtitle: "A session-attached UI grammar for turning complex work into a rail and generic cards.",
-  badges: [
-    { label: "Session tool", tone: "blue" },
-    { label: "Generic cards", tone: "violet" },
-  ],
+  footerNote: "Open-source product built by Humanbased. Rebrand note: Codatta is now Humanbased.",
   summary: {
     type: "header",
     eyebrow: "CURRENT OUTPUT",

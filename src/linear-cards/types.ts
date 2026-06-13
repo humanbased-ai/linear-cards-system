@@ -178,7 +178,13 @@ export type LinearCardNode = {
 };
 
 export type LinearCardsDocument = {
+  brand?: {
+    logoAlt?: string;
+    logoSrc: string;
+  };
+  footerNote?: string;
   eyebrow?: string;
+  sourceHref?: string;
   title: string;
   subtitle?: string;
   badges?: LinearBadge[];

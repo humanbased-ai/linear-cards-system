@@ -26,16 +26,26 @@ const statusLabel: Record<LinearCardStatus, string> = {
 export function LinearCardsTimeline({ document }: Props) {
   return (
     <section className="lc-system" aria-label={document.title}>
-      <div className="lc-document-head">
-        {document.eyebrow ? <p className="lc-eyebrow">{document.eyebrow}</p> : null}
+      <header className="lc-document-head">
+        {document.eyebrow ? (
+          <p className="lc-eyebrow">{document.eyebrow}</p>
+        ) : null}
         <div className="lc-document-title-row">
-          <div>
-            <h1>{document.title}</h1>
+          <div className="lc-document-copy">
+            <h1>
+              {document.sourceHref ? (
+                <a href={document.sourceHref} rel="noreferrer" target="_blank">
+                  {document.title}
+                </a>
+              ) : (
+                document.title
+              )}
+            </h1>
             {document.subtitle ? <p>{document.subtitle}</p> : null}
           </div>
           <BadgeRow badges={document.badges} />
         </div>
-      </div>
+      </header>
 
       {document.summary ? <CardRenderer card={document.summary} compact={false} /> : null}
 
@@ -45,6 +55,21 @@ export function LinearCardsTimeline({ document }: Props) {
           <TimelineNode key={node.id} node={node} />
         ))}
       </div>
+      {(document.brand || document.footerNote) && (
+        <footer className="lc-document-footer">
+          {document.brand ? (
+            <div className="lc-footer-logo" aria-label={document.brand.logoAlt ?? document.title}>
+              <img src={document.brand.logoSrc} alt={document.brand.logoAlt ?? ""} />
+            </div>
+          ) : null}
+          {document.footerNote ? <p>{document.footerNote}</p> : null}
+          {document.sourceHref ? (
+            <a href={document.sourceHref} rel="noreferrer" target="_blank">
+              Source code →
+            </a>
+          ) : null}
+        </footer>
+      )}
     </section>
   );
 }
@@ -85,12 +110,16 @@ function CardRenderer({ card, compact }: { card: LinearCard; compact: boolean })
       <section className={toneClass("lc-statement", card.tone)}>
         {card.eyebrow ? <p className="lc-eyebrow">{card.eyebrow}</p> : null}
         <div className="lc-statement-row">
-          <div>
+          <div className="lc-statement-copy">
             <h3>{card.title}</h3>
             {card.body ? <p>{card.body}</p> : null}
-            {card.meta ? <span>{card.meta}</span> : null}
+            {(card.meta || card.badges?.length) && (
+              <div className="lc-statement-meta-row">
+                {card.meta ? <span className="lc-statement-meta">{card.meta}</span> : null}
+                <BadgeRow badges={card.badges} />
+              </div>
+            )}
           </div>
-          <BadgeRow badges={card.badges} />
         </div>
       </section>
     );
