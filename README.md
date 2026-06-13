@@ -1,18 +1,36 @@
 # Linear Cards System
 
-A session-attached workflow UI grammar for rendering complex work as a mostly linear rail with generic cards.
+A session-attached workflow UI grammar for rendering complex work as a mostly linear rail with structured cards and quiet statements.
 
-The idea is simple: coding agents should not redesign workflow UI from scratch every time. They should map the task into a `LinearCardsDocument`, choose generic card types by information shape, and let the renderer own the rail, spacing, surfaces, status styling, and responsive behavior.
+![Sample rendering of Linear Cards System](docs/assets/sample-rendering.png)
 
-## Status
+## Purpose
 
-This repository is an early open-source prototype. It includes:
+Complex tasks often have the same shape: a sequence of steps, occasional branches, evidence, state changes, outputs, and follow-up actions.
 
-- A React/Vite demo app
-- A typed `LinearCardsDocument` model
-- A reusable timeline/card renderer
-- A CSS token layer for the visual system
-- A session-attached agent guide
+Linear Cards System gives coding agents a constrained UI grammar for that shape. Instead of redesigning workflow UI from scratch, an agent maps the task into a `LinearCardsDocument`, chooses generic information primitives, and lets the renderer own the rail, spacing, surfaces, status styling, and responsive behavior.
+
+The goal is not to make every item a card. The system intentionally mixes:
+
+- a mostly linear timeline rail
+- framed cards for structured or grouped information
+- unframed statements for lightweight notes and milestones
+- vivid color used only as small state or emphasis signals
+
+## When To Use It
+
+Use Linear Cards System when an interface needs to show process, progress, auditability, or stepwise reasoning:
+
+- coding task progress
+- research workflows
+- evaluation runs
+- operational checklists
+- math or reasoning traces
+- build/deploy pipelines
+- artifact and evidence trails
+- agent-generated work summaries
+
+It is especially useful when a downstream coding agent should focus on the domain logic and produce UI by filling a schema, not inventing a layout system.
 
 ## Quick Start
 
@@ -23,14 +41,15 @@ npm run dev
 
 Open the local URL printed by Vite.
 
-## Core Usage
+## React Usage
 
 ```tsx
 import { LinearCardsTimeline } from "./linear-cards";
 import type { LinearCardsDocument } from "./linear-cards";
 
 const document: LinearCardsDocument = {
-  title: "Workflow Rendering Run",
+  title: "Linear Cards System",
+  sourceHref: "https://github.com/humanbased-ai/linear-cards-system",
   nodes: [
     {
       id: "capture-intent",
@@ -43,6 +62,12 @@ const document: LinearCardsDocument = {
           title: "User need",
           body: "Represent complex work as a mostly linear workflow.",
         },
+        {
+          type: "statement",
+          title: "Statements stay unframed",
+          body: "Use statements for lightweight milestones or notes.",
+          badges: [{ label: "quiet", tone: "muted" }],
+        },
       ],
     },
   ],
@@ -53,9 +78,30 @@ export function App() {
 }
 ```
 
-## Card Grammar
+## Agent Usage
 
-Cards are generic information shapes, not domain-specific components:
+This system is meant to be session-attached, not a permanent project rule.
+
+When a user asks for Linear Cards, an agent can load:
+
+```txt
+agent/LINEAR_CARDS_SESSION.md
+```
+
+Then for the current task only:
+
+1. Identify workflow nodes.
+2. Assign each node a title, rail label, optional time, and status.
+3. Select generic primitives by information shape.
+4. Fill the card or statement data.
+5. Render through `LinearCardsTimeline`.
+6. Tune tokens only if the visual tone needs adjustment.
+
+If the downstream harness exposes UI quality skills, ask it to load `impeccable` and its taste/frontend design skill for the current session before finalizing. The intent is a temporary quality pass, not permanent agent configuration.
+
+## Information Primitives
+
+Choose primitives by information shape, not domain meaning:
 
 - `header`: overview, current item, selected item, or workflow summary
 - `grid`: labeled values, stats, properties, comparison cells
@@ -93,27 +139,6 @@ Use black and white as the main material. Keep surfaces near-white, text near-bl
 
 Prefer assigning these through `tone` values instead of writing one-off CSS.
 
-## Agent Usage
-
-This system is meant to be session-attached, not a permanent project rule.
-
-When a user asks for Linear Cards, an agent can load:
-
-```txt
-agent/LINEAR_CARDS_SESSION.md
-```
-
-Then for the current task only:
-
-1. Identify workflow nodes.
-2. Assign each node a title, rail label, optional time, and status.
-3. Select generic card types by information shape.
-4. Fill the card data.
-5. Render through `LinearCardsTimeline`.
-6. Tune tokens only if the visual tone needs adjustment.
-
-If the downstream harness exposes UI quality skills, ask it to load `impeccable` and its taste/frontend design skill for the current session before finalizing. The intent is a temporary quality pass, not permanent agent configuration.
-
 ## Development
 
 ```bash
@@ -121,6 +146,18 @@ npm run build
 ```
 
 The demo source lives in `src/linear-cards/examples.ts`.
+
+## Status
+
+This repository is an early open-source prototype built by Humanbased.
+
+It includes:
+
+- a React/Vite demo app
+- a typed `LinearCardsDocument` model
+- a reusable timeline/card renderer
+- a CSS token layer for the visual system
+- a session-attached agent guide
 
 ## License
 
