@@ -46,6 +46,22 @@ Choose cards by information shape, not domain meaning:
 5. Render through `LinearCardsTimeline`.
 6. Tune tokens only if the visual tone needs adjustment.
 
+## Downstream Quality Pass
+
+If the harness exposes UI design skills, use them for the current task before finalizing:
+
+- Load `impeccable` for product UI polish, accessibility, spacing, interaction states, and design-system discipline.
+- Load the available taste/frontend skill, such as `design-taste-frontend`, for anti-slop visual judgment and reference matching.
+- Keep these skills session-attached. Do not write permanent `AGENTS.md` or `CLAUDE.md` rules unless the user asks.
+
+Apply the quality pass after the document renders:
+
+1. Verify the rail/card layout in a browser.
+2. Check desktop and mobile widths for overflow and text clipping.
+3. Confirm interactive states: hover, focus, active, disabled if present.
+4. Confirm semantic colors are consistent for good, attention, bad, muted, and neutral states.
+5. Refine tokens before adding one-off CSS.
+
 ## Avoid
 
 - New rail systems.

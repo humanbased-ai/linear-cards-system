@@ -104,7 +104,12 @@ function CardRenderer({ card, compact }: { card: LinearCard; compact: boolean })
           </div>
         </div>
         {card.metrics ? <MetricGrid items={card.metrics} /> : null}
-        {card.footer ? <footer className="lc-card-footer">{card.footer}<span aria-hidden="true">⌄</span></footer> : null}
+        {card.footer ? (
+          <footer className="lc-card-footer">
+            {card.footer}
+            <span aria-hidden="true">⌄</span>
+          </footer>
+        ) : null}
       </section>
     );
   }
@@ -114,7 +119,17 @@ function CardRenderer({ card, compact }: { card: LinearCard; compact: boolean })
       <section className={className}>
         <CardTitle card={card} />
         <MetricGrid items={card.items} />
-        {card.action ? <a className="lc-card-link" href={card.action.href ?? "#"}>{card.action.label} →</a> : null}
+        {card.action ? (
+          card.action.href ? (
+            <a className="lc-card-link" href={card.action.href}>
+              {card.action.label} →
+            </a>
+          ) : (
+            <button className="lc-card-link" type="button">
+              {card.action.label} →
+            </button>
+          )
+        ) : null}
       </section>
     );
   }
@@ -197,12 +212,19 @@ function CardRenderer({ card, compact }: { card: LinearCard; compact: boolean })
       <section className={className}>
         <CardTitle card={card} />
         <div className="lc-references">
-          {card.references.map((reference) => (
-            <a className={toneClass("lc-reference", reference.tone)} href={reference.href ?? "#"} key={reference.label}>
-              <strong>{reference.label}</strong>
-              {reference.meta ? <span>{reference.meta}</span> : null}
-            </a>
-          ))}
+          {card.references.map((reference) =>
+            reference.href ? (
+              <a className={toneClass("lc-reference", reference.tone)} href={reference.href} key={reference.label}>
+                <strong>{reference.label}</strong>
+                {reference.meta ? <span>{reference.meta}</span> : null}
+              </a>
+            ) : (
+              <div className={toneClass("lc-reference", reference.tone)} key={reference.label}>
+                <strong>{reference.label}</strong>
+                {reference.meta ? <span>{reference.meta}</span> : null}
+              </div>
+            ),
+          )}
         </div>
       </section>
     );
@@ -229,7 +251,7 @@ function CardRenderer({ card, compact }: { card: LinearCard; compact: boolean })
         <CardTitle card={card} />
         <div className="lc-actions">
           {card.actions.map((action) => (
-            <button className={action.kind === "primary" ? "lc-action lc-action-primary" : "lc-action"} key={action.label}>
+            <button className={action.kind === "primary" ? "lc-action lc-action-primary" : "lc-action"} key={action.label} type="button">
               <strong>{action.label}</strong>
               {action.description ? <span>{action.description}</span> : null}
             </button>

@@ -87,6 +87,8 @@ Then for the current task only:
 5. Render through `LinearCardsTimeline`.
 6. Tune tokens only if the visual tone needs adjustment.
 
+If the downstream harness exposes UI quality skills, ask it to load `impeccable` and its taste/frontend design skill for the current session before finalizing. The intent is a temporary quality pass, not permanent agent configuration.
+
 ## Development
 
 ```bash
