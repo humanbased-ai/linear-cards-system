@@ -1,30 +1,42 @@
 :root {
   color-scheme: light;
-  --lc-bg: oklch(98.1% 0.008 76);
-  --lc-surface: oklch(99% 0.006 80);
-  --lc-surface-soft: oklch(96.2% 0.012 74);
-  --lc-surface-raised: oklch(99.4% 0.005 78);
-  --lc-selected: oklch(96.1% 0.018 58);
-  --lc-border: oklch(90.2% 0.015 73);
-  --lc-border-strong: oklch(83.6% 0.018 70);
-  --lc-text: oklch(33.6% 0.012 76);
-  --lc-text-strong: oklch(24.8% 0.011 76);
-  --lc-text-soft: oklch(48.3% 0.014 72);
-  --lc-muted: oklch(66.4% 0.015 74);
-  --lc-muted-2: oklch(76% 0.015 72);
-  --lc-accent: oklch(43.6% 0.055 35);
-  --lc-accent-soft: oklch(95.1% 0.025 51);
-  --lc-good: oklch(48.6% 0.041 151);
-  --lc-good-soft: oklch(94.9% 0.017 151);
-  --lc-attention: oklch(54.8% 0.062 71);
-  --lc-attention-soft: oklch(95.2% 0.022 72);
-  --lc-bad: oklch(50.6% 0.062 27);
-  --lc-bad-soft: oklch(94.6% 0.024 29);
-  --lc-focus: oklch(55.2% 0.071 38);
+  --lc-bg: oklch(98.8% 0.002 260);
+  --lc-surface: oklch(99.6% 0.001 260);
+  --lc-surface-soft: oklch(95.2% 0.003 260);
+  --lc-surface-raised: oklch(99.8% 0.001 260);
+  --lc-selected: oklch(96.5% 0.032 289);
+  --lc-border: oklch(88.6% 0.004 260);
+  --lc-border-strong: oklch(74.8% 0.006 260);
+  --lc-text: oklch(27% 0.004 260);
+  --lc-text-strong: oklch(14.8% 0.004 260);
+  --lc-text-soft: oklch(43.6% 0.006 260);
+  --lc-muted: oklch(61.8% 0.006 260);
+  --lc-muted-2: oklch(76.4% 0.005 260);
+  --lc-accent: oklch(53.8% 0.19 255);
+  --lc-accent-soft: oklch(95.1% 0.033 255);
+  --lc-good: oklch(70.5% 0.18 143);
+  --lc-good-soft: oklch(95.6% 0.048 143);
+  --lc-attention: oklch(75.2% 0.17 78);
+  --lc-attention-soft: oklch(96.4% 0.052 78);
+  --lc-bad: oklch(61% 0.22 24);
+  --lc-bad-soft: oklch(95.3% 0.047 24);
+  --lc-blue: oklch(53.8% 0.19 255);
+  --lc-blue-soft: oklch(95.1% 0.033 255);
+  --lc-violet: oklch(56% 0.21 301);
+  --lc-violet-soft: oklch(95.4% 0.041 301);
+  --lc-lime: oklch(73% 0.19 143);
+  --lc-lime-soft: oklch(95.8% 0.049 143);
+  --lc-rose: oklch(61% 0.22 24);
+  --lc-rose-soft: oklch(95.3% 0.047 24);
+  --lc-amber: oklch(75.2% 0.17 78);
+  --lc-amber-soft: oklch(96.4% 0.052 78);
+  --lc-cyan: oklch(70% 0.14 210);
+  --lc-cyan-soft: oklch(95.5% 0.041 210);
+  --lc-focus: var(--lc-blue);
   --lc-radius: 18px;
   --lc-radius-small: 10px;
   --lc-rail: 112px;
-  --lc-shadow: 0 18px 48px color-mix(in oklch, var(--lc-accent) 10%, transparent);
+  --lc-shadow: 0 18px 48px color-mix(in oklch, var(--lc-text-strong) 8%, transparent);
   --lc-duration: 180ms;
   --lc-ease: cubic-bezier(0.16, 1, 0.3, 1);
   font-family:
@@ -229,19 +241,31 @@ summary:focus-visible {
 }
 
 .lc-metric strong {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   margin-top: 6px;
   color: var(--lc-text-strong);
   font-size: 22px;
   line-height: 1;
 }
 
+.lc-metric strong[class*="lc-tone-"]::before {
+  width: 9px;
+  height: 9px;
+  border: 1px solid color-mix(in oklch, currentColor 45%, var(--lc-surface));
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in oklch, currentColor 13%, transparent);
+  content: "";
+}
+
 .lc-metric em {
   margin-left: 8px;
   padding: 3px 8px;
   border-radius: 999px;
-  background: var(--lc-good-soft);
-  color: var(--lc-good);
+  background: var(--lc-surface-soft);
+  color: var(--lc-text-soft);
   font-size: 11px;
   font-style: normal;
   font-weight: 800;
@@ -476,6 +500,10 @@ summary:focus-visible {
   background: var(--lc-selected);
 }
 
+.lc-selected .lc-branch-rule {
+  border-color: var(--lc-violet);
+}
+
 .lc-references,
 .lc-actions {
   display: grid;
@@ -605,6 +633,10 @@ a.lc-reference:hover {
   color: var(--lc-good);
 }
 
+.lc-tone-neutral {
+  color: var(--lc-text-strong);
+}
+
 .lc-tone-attention {
   color: var(--lc-attention);
 }
@@ -617,25 +649,82 @@ a.lc-reference:hover {
   color: var(--lc-muted);
 }
 
+.lc-tone-blue {
+  color: var(--lc-blue);
+}
+
+.lc-tone-violet {
+  color: var(--lc-violet);
+}
+
+.lc-tone-lime {
+  color: var(--lc-lime);
+}
+
+.lc-tone-rose {
+  color: var(--lc-rose);
+}
+
+.lc-tone-amber {
+  color: var(--lc-amber);
+}
+
+.lc-tone-cyan {
+  color: var(--lc-cyan);
+}
+
+.lc-metric-delta.lc-tone-good,
+.lc-metric-delta.lc-tone-lime {
+  background: var(--lc-lime-soft);
+  color: color-mix(in oklch, var(--lc-lime) 78%, var(--lc-text-strong));
+}
+
+.lc-metric-delta.lc-tone-attention,
+.lc-metric-delta.lc-tone-amber {
+  background: var(--lc-amber-soft);
+  color: color-mix(in oklch, var(--lc-amber) 72%, var(--lc-text-strong));
+}
+
+.lc-metric-delta.lc-tone-bad,
+.lc-metric-delta.lc-tone-rose {
+  background: var(--lc-rose-soft);
+  color: color-mix(in oklch, var(--lc-rose) 82%, var(--lc-text-strong));
+}
+
+.lc-metric-delta.lc-tone-blue {
+  background: var(--lc-blue-soft);
+  color: var(--lc-blue);
+}
+
+.lc-metric-delta.lc-tone-violet {
+  background: var(--lc-violet-soft);
+  color: var(--lc-violet);
+}
+
+.lc-metric-delta.lc-tone-cyan {
+  background: var(--lc-cyan-soft);
+  color: color-mix(in oklch, var(--lc-cyan) 76%, var(--lc-text-strong));
+}
+
 .lc-badge.lc-tone-good,
 .lc-status.lc-tone-good {
-  border-color: color-mix(in oklch, var(--lc-good) 24%, var(--lc-border));
-  background: var(--lc-good-soft);
-  color: var(--lc-good);
+  border-color: color-mix(in oklch, var(--lc-lime) 34%, var(--lc-border));
+  background: var(--lc-lime-soft);
+  color: color-mix(in oklch, var(--lc-lime) 78%, var(--lc-text-strong));
 }
 
 .lc-badge.lc-tone-attention,
 .lc-status.lc-tone-attention {
-  border-color: color-mix(in oklch, var(--lc-attention) 26%, var(--lc-border));
-  background: var(--lc-attention-soft);
-  color: var(--lc-attention);
+  border-color: color-mix(in oklch, var(--lc-amber) 36%, var(--lc-border));
+  background: var(--lc-amber-soft);
+  color: color-mix(in oklch, var(--lc-amber) 72%, var(--lc-text-strong));
 }
 
 .lc-badge.lc-tone-bad,
 .lc-status.lc-tone-bad {
-  border-color: color-mix(in oklch, var(--lc-bad) 26%, var(--lc-border));
-  background: var(--lc-bad-soft);
-  color: var(--lc-bad);
+  border-color: color-mix(in oklch, var(--lc-rose) 36%, var(--lc-border));
+  background: var(--lc-rose-soft);
+  color: color-mix(in oklch, var(--lc-rose) 82%, var(--lc-text-strong));
 }
 
 .lc-badge.lc-tone-muted,
@@ -645,16 +734,89 @@ a.lc-reference:hover {
   color: var(--lc-muted);
 }
 
+.lc-badge.lc-tone-neutral,
+.lc-status.lc-tone-neutral {
+  border-color: var(--lc-border-strong);
+  background: var(--lc-surface);
+  color: var(--lc-text-strong);
+}
+
+.lc-badge.lc-tone-blue,
+.lc-status.lc-tone-blue {
+  border-color: color-mix(in oklch, var(--lc-blue) 34%, var(--lc-border));
+  background: var(--lc-blue-soft);
+  color: var(--lc-blue);
+}
+
+.lc-badge.lc-tone-violet,
+.lc-status.lc-tone-violet {
+  border-color: color-mix(in oklch, var(--lc-violet) 34%, var(--lc-border));
+  background: var(--lc-violet-soft);
+  color: var(--lc-violet);
+}
+
+.lc-badge.lc-tone-lime,
+.lc-status.lc-tone-lime {
+  border-color: color-mix(in oklch, var(--lc-lime) 34%, var(--lc-border));
+  background: var(--lc-lime-soft);
+  color: color-mix(in oklch, var(--lc-lime) 78%, var(--lc-text-strong));
+}
+
+.lc-badge.lc-tone-rose,
+.lc-status.lc-tone-rose {
+  border-color: color-mix(in oklch, var(--lc-rose) 34%, var(--lc-border));
+  background: var(--lc-rose-soft);
+  color: color-mix(in oklch, var(--lc-rose) 82%, var(--lc-text-strong));
+}
+
+.lc-badge.lc-tone-amber,
+.lc-status.lc-tone-amber {
+  border-color: color-mix(in oklch, var(--lc-amber) 34%, var(--lc-border));
+  background: var(--lc-amber-soft);
+  color: color-mix(in oklch, var(--lc-amber) 72%, var(--lc-text-strong));
+}
+
+.lc-badge.lc-tone-cyan,
+.lc-status.lc-tone-cyan {
+  border-color: color-mix(in oklch, var(--lc-cyan) 34%, var(--lc-border));
+  background: var(--lc-cyan-soft);
+  color: color-mix(in oklch, var(--lc-cyan) 76%, var(--lc-text-strong));
+}
+
 .lc-dot.lc-tone-good {
-  background: var(--lc-good);
+  background: var(--lc-lime);
 }
 
 .lc-dot.lc-tone-attention {
-  background: var(--lc-attention);
+  background: var(--lc-amber);
 }
 
 .lc-dot.lc-tone-bad {
-  background: var(--lc-bad);
+  background: var(--lc-rose);
+}
+
+.lc-dot.lc-tone-blue {
+  background: var(--lc-blue);
+}
+
+.lc-dot.lc-tone-violet {
+  background: var(--lc-violet);
+}
+
+.lc-dot.lc-tone-lime {
+  background: var(--lc-lime);
+}
+
+.lc-dot.lc-tone-rose {
+  background: var(--lc-rose);
+}
+
+.lc-dot.lc-tone-amber {
+  background: var(--lc-amber);
+}
+
+.lc-dot.lc-tone-cyan {
+  background: var(--lc-cyan);
 }
 
 @media (max-width: 820px) {

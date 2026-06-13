@@ -5,8 +5,8 @@ export const demoDocument: LinearCardsDocument = {
   title: "Workflow Rendering Run",
   subtitle: "A session-attached UI grammar for turning complex work into a rail and generic cards.",
   badges: [
-    { label: "Session tool", tone: "good" },
-    { label: "Generic cards", tone: "neutral" },
+    { label: "Session tool", tone: "blue" },
+    { label: "Generic cards", tone: "violet" },
   ],
   summary: {
     type: "header",
@@ -19,14 +19,14 @@ export const demoDocument: LinearCardsDocument = {
       { label: "Inspectable", tone: "good" },
     ],
     metrics: [
-      { label: "Card grammar", value: "10", delta: "generic" },
-      { label: "Custom layouts", value: "0", delta: "by default", tone: "good" },
-      { label: "Branch depth", value: "local", delta: "nested" },
-      { label: "Agent load", value: "low", delta: "schema-first", tone: "good" },
-      { label: "Rail mode", value: "linear", delta: "chronological" },
-      { label: "Visual density", value: "medium", delta: "tunable" },
-      { label: "Schema", value: "typed", delta: "portable" },
-      { label: "Distribution", value: "session", delta: "attached" },
+      { label: "Card grammar", value: "10", delta: "generic", tone: "blue" },
+      { label: "Custom layouts", value: "0", delta: "by default", tone: "lime" },
+      { label: "Branch depth", value: "local", delta: "nested", tone: "violet" },
+      { label: "Agent load", value: "low", delta: "schema-first", tone: "cyan" },
+      { label: "Rail mode", value: "linear", delta: "chronological", tone: "rose" },
+      { label: "Visual density", value: "medium", delta: "tunable", tone: "amber" },
+      { label: "Schema", value: "typed", delta: "portable", tone: "lime" },
+      { label: "Distribution", value: "session", delta: "attached", tone: "blue" },
     ],
     footer: "Details: card taxonomy, schema contract, session guide, rendered example",
   },
@@ -72,11 +72,35 @@ export const demoDocument: LinearCardsDocument = {
       ],
     },
     {
+      id: "palette",
+      title: "Suggest vivid decoration tones",
+      subtitle: "Saturday  Jun 13",
+      status: "complete",
+      rail: { time: "7:24 PM", label: "PALETTE", markerTone: "blue" },
+      cards: [
+        {
+          type: "grid",
+          title: "Color palette suggestions",
+          items: [
+            { label: "Ink", value: "Near black", delta: "base", tone: "neutral" },
+            { label: "Paper", value: "Near white", delta: "base", tone: "muted" },
+            { label: "Electric blue", value: "Primary signal", delta: "links", tone: "blue" },
+            { label: "Vivid violet", value: "Branching", delta: "choice", tone: "violet" },
+            { label: "Acid lime", value: "Success", delta: "good", tone: "lime" },
+            { label: "Signal rose", value: "Risk", delta: "bad", tone: "rose" },
+            { label: "Hot amber", value: "Attention", delta: "warn", tone: "amber" },
+            { label: "Clean cyan", value: "Reference", delta: "info", tone: "cyan" },
+          ],
+          action: { label: "use palette" },
+        },
+      ],
+    },
+    {
       id: "decision",
       title: "Choose distribution mode",
       subtitle: "Saturday  Jun 13",
       status: "partial",
-      rail: { time: "7:31 PM", label: "SELECTED", markerTone: "attention" },
+      rail: { time: "7:31 PM", label: "SELECTED", markerTone: "violet" },
       cards: [
         {
           type: "branch",
@@ -107,7 +131,7 @@ export const demoDocument: LinearCardsDocument = {
       title: "Compile workflows into documents",
       subtitle: "Saturday  Jun 13",
       status: "running",
-      rail: { time: "7:44 PM", label: "BUILDING", markerTone: "neutral" },
+      rail: { time: "7:44 PM", label: "BUILDING", markerTone: "cyan" },
       cards: [
         {
           type: "split",
@@ -142,7 +166,7 @@ export const demoDocument: LinearCardsDocument = {
       title: "Attach evidence and outputs",
       subtitle: "Saturday  Jun 13",
       status: "complete",
-      rail: { time: "8:02 PM", label: "LINKED", markerTone: "good" },
+      rail: { time: "8:02 PM", label: "LINKED", markerTone: "lime" },
       cards: [
         {
           type: "reference",
@@ -160,7 +184,7 @@ export const demoDocument: LinearCardsDocument = {
       title: "Render and inspect",
       subtitle: "Saturday  Jun 13",
       status: "pending",
-      rail: { time: "8:16 PM", label: "VERIFY", markerTone: "muted" },
+      rail: { time: "8:16 PM", label: "VERIFY", markerTone: "amber" },
       cards: [
         {
           type: "state",

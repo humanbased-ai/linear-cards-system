@@ -290,7 +290,7 @@ function MetricGrid({ items }: { items: LinearMetric[] }) {
         <div className="lc-metric" key={`${item.label}-${item.value}`}>
           <span>{item.label}</span>
           <strong className={toneClass("", item.tone)}>{item.value}</strong>
-          {item.delta ? <em>{item.delta}</em> : null}
+          {item.delta ? <em className={toneClass("lc-metric-delta", item.tone)}>{item.delta}</em> : null}
         </div>
       ))}
     </div>

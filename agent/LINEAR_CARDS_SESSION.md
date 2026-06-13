@@ -34,6 +34,8 @@ Choose cards by information shape, not domain meaning:
 - Prefer one to three cards per node.
 - Prefer generic cards over custom components.
 - Use `status`, `tone`, `emphasis`, and tokens to tune presentation.
+- Use black and white as the main material. Reserve vivid colors for state chips, deltas, rail markers, selections, and small decorative signals.
+- Prefer the built-in tone palette: `blue`, `violet`, `lime`, `rose`, `amber`, `cyan`, plus semantic `good`, `attention`, `bad`, `neutral`, and `muted`.
 - Keep rail labels short: `DEFINED`, `CHECKED`, `BUILT`, `FAILED`, `VERIFY`.
 - Use references for artifacts instead of embedding long raw output.
 

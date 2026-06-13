@@ -13,7 +13,13 @@ export type LinearCardTone =
   | "good"
   | "attention"
   | "bad"
-  | "muted";
+  | "muted"
+  | "blue"
+  | "violet"
+  | "lime"
+  | "rose"
+  | "amber"
+  | "cyan";
 
 export type LinearCardType =
   | "header"

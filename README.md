@@ -68,6 +68,19 @@ Cards are generic information shapes, not domain-specific components:
 - `action`: commands, approvals, next steps, user choices
 - `disclosure`: collapsed deeper details
 
+## Palette Guidance
+
+Use black and white as the main material. Keep surfaces near-white, text near-black, and borders neutral. Use vivid colors only as decoration for state, selection, deltas, markers, and small chips:
+
+- `blue`: primary signal, links, selected tools
+- `violet`: branching, choices, alternatives
+- `lime`: success, completion, healthy state
+- `rose`: risk, failure, destructive state
+- `amber`: warning, attention, pending state
+- `cyan`: references, evidence, informational state
+
+Prefer assigning these through `tone` values instead of writing one-off CSS.
+
 ## Agent Usage
 
 This system is meant to be session-attached, not a permanent project rule.
