@@ -1,0 +1,40 @@
+{
+  "name": "@humanbased-ai/linear-cards-system",
+  "version": "0.1.0",
+  "private": false,
+  "description": "A session-attached workflow UI grammar for rendering complex work as linear rails and generic cards.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/humanbased-ai/linear-cards-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/humanbased-ai/linear-cards-system/issues"
+  },
+  "homepage": "https://github.com/humanbased-ai/linear-cards-system#readme",
+  "keywords": [
+    "workflow",
+    "timeline",
+    "cards",
+    "agent-ui",
+    "design-system",
+    "react"
+  ],
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.8.0",
+    "vite": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
+  }
+}
