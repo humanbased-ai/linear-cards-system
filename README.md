@@ -34,6 +34,22 @@ It is especially useful when a downstream coding agent should focus on the domai
 
 ## Quick Start
 
+Install from npm:
+
+```bash
+npm install @humanbased/linear-cards-system
+```
+
+Use it in a React app:
+
+```tsx
+import { LinearCardsTimeline } from "@humanbased/linear-cards-system";
+import type { LinearCardsDocument } from "@humanbased/linear-cards-system";
+import "@humanbased/linear-cards-system/css";
+```
+
+Run the local demo from this repo:
+
 ```bash
 npm install
 npm run dev
@@ -44,8 +60,9 @@ Open the local URL printed by Vite.
 ## React Usage
 
 ```tsx
-import { LinearCardsTimeline } from "./linear-cards";
-import type { LinearCardsDocument } from "./linear-cards";
+import { LinearCardsTimeline } from "@humanbased/linear-cards-system";
+import type { LinearCardsDocument } from "@humanbased/linear-cards-system";
+import "@humanbased/linear-cards-system/css";
 
 const document: LinearCardsDocument = {
   title: "Linear Cards System",

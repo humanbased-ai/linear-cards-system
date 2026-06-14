@@ -1,5 +1,5 @@
 {
-  "name": "@humanbased-ai/linear-cards-system",
+  "name": "@humanbased/linear-cards-system",
   "version": "0.1.0",
   "private": false,
   "description": "A session-attached workflow UI grammar for rendering complex work as linear rails and generic cards.",
@@ -7,12 +7,32 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/humanbased-ai/linear-cards-system.git"
+    "url": "git+https://github.com/humanbased-ai/linear-cards-system.git"
   },
   "bugs": {
     "url": "https://github.com/humanbased-ai/linear-cards-system/issues"
   },
   "homepage": "https://github.com/humanbased-ai/linear-cards-system#readme",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/linear-cards/index.ts",
+      "default": "./src/linear-cards/index.ts"
+    },
+    "./css": "./src/linear-cards/linear-cards.css",
+    "./example": "./src/linear-cards/examples.ts",
+    "./agent": "./agent/LINEAR_CARDS_SESSION.md"
+  },
+  "files": [
+    "agent",
+    "docs/assets/sample-rendering.png",
+    "public/assets/humanbased-logomark-black.svg",
+    "src/linear-cards",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "workflow",
     "timeline",
@@ -26,15 +46,17 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --host 127.0.0.1"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "^5.8.0",
     "vite": "^7.0.0"
-  },
-  "devDependencies": {
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3"
   }
 }
